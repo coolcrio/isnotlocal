@@ -29,4 +29,5 @@ $font-family-sans-serif: 'Titillium Web', sans-serif;
 
 @import
   //'partials/bs',
-  '../node_modules/bootstrap/scss/bootstrap';
+  '../node_modules/bootstrap/scss/bootstrap',
+  'custom.scss';
