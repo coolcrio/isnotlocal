@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         // src: 'src/<%= pkg.name %>.js',
         // dest: 'min/<%= pkg.name %>.min.js',
         files: {
-          'dist/js/all.min.js': [
+          'docs/js/all.min.js': [
             'js/vendor/modernizr-3.8.0.min.js', 
             'js/plugins.js',
             'js/main.js'
@@ -34,14 +34,14 @@ module.exports = function(grunt) {
           includesDir: 'inc/' // Directory where includes will be resolved.
         },
         src: '*.html',
-        dest: 'dist/'
+        dest: 'docs/'
       },
     
       // compile less stylesheets to css -----------------------------------------
       less: {
           build: {
             files: {
-              'dist/css/pretty.css': 'src/css/pretty.less'
+              'docs/css/pretty.css': 'src/css/pretty.less'
             }
           }
       },
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
           },
           build: {
             files: {
-              'dist/css/style.min.css': 'src/css/style.css'
+              'docs/css/style.min.css': 'src/css/style.css'
             }
           }
       },
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/css/main.css': 'scss/main.scss'
+          'docs/css/main.css': 'scss/main.scss'
         }
       }
     },
@@ -94,13 +94,13 @@ module.exports = function(grunt) {
           {
             expand: true, 
             src: ['**'], 
-            dest: 'dist/webfonts',
+            dest: 'docs/webfonts',
             cwd: 'node_modules/@fortawesome/fontawesome-free/webfonts/' 
           },
           {
             expand: true, 
             src: ['**'], 
-            dest: 'dist/img',
+            dest: 'docs/img',
             cwd: 'img/' 
           },
 
@@ -166,7 +166,7 @@ module.exports = function(grunt) {
         cache: 'sftpCache.json',
         src: '/path/to/source/folder',
         dest: '/path/to/destination/folder',
-        exclusions: ['/path/to/source/folder/**/.DS_Store', '/path/to/source/folder/**/Thumbs.db', 'dist/tmp'],
+        exclusions: ['/path/to/source/folder/**/.DS_Store', '/path/to/source/folder/**/Thumbs.db', 'docs/tmp'],
         serverSep: '/',
         localSep: '/',
         concurrency: 4,
