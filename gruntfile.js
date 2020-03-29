@@ -104,8 +104,23 @@ module.exports = function(grunt) {
             cwd: 'img/' 
           },
           {
-            src: ['CNAME'], 
-            dest: 'docs/CNAME'
+            src: [
+              'android-chrome-96x96.png',
+              'apple-touch-icon.png',
+              'browserconfig.xml',
+              'CNAME',
+              'favicon-16x16.png',
+              'favicon-32x32.png',
+              'favicon.ico',
+              'icon.png',
+              'mstile-150x150.png',
+              'safari-pinned-tab.svg',
+              'site.webmanifest',
+              'tile-wide.png',
+              'tile.png',
+              'robots.txt',
+            ], 
+            dest: 'docs/'
           },
 
           // includes files within path and its sub-directories
