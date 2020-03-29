@@ -1,5 +1,4 @@
-// Gruntfile.js
-// npm add grunt grunt-include-replace grunt-contrib-jshint jshint-stylish grunt-contrib-uglify grunt-contrib-cssmin grunt-contrib-copy grunt-contrib-clean grunt-contrib-htmlmin grunt-sftp-deploy
+const sass = require('node-sass');
 
 module.exports = function(grunt) {
 
@@ -72,6 +71,19 @@ module.exports = function(grunt) {
       scripts: { 
         files: 'js/*.js', tasks: ['jshint', 'uglify'] 
       } 
+    },
+
+    // sass compiling ------------------------------------------
+    sass: {
+      options: {
+        implementation: sass,
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          'dist/css/main.css': 'scss/main.scss'
+        }
+      }
     },
       
     // copy files ------------------------------------------
@@ -172,9 +184,10 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-include-replace');
-  grunt.loadNpmTasks('grunt-include-includereplace');
+  grunt.loadNpmTasks('grunt-sass');
+  //grunt.loadNpmTasks('grunt-include-includereplace');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify','includereplace']);
+  grunt.registerTask('default', ['uglify','sass','includereplace']);
 
 };
