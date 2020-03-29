@@ -91,39 +91,34 @@ module.exports = function(grunt) {
       main: {
         files: [
           // includes files within path
-          {expand: true, src: ['path/*'], dest: 'dest/', filter: 'isFile'},
+          {
+            expand: true, 
+            src: ['**'], 
+            dest: 'dist/webfonts',
+            cwd: 'node_modules/@fortawesome/fontawesome-free/webfonts/' 
+          },
+          {
+            expand: true, 
+            src: ['**'], 
+            dest: 'dist/img',
+            cwd: 'img/' 
+          },
 
           // includes files within path and its sub-directories
-          {expand: true, src: ['path/**'], dest: 'dest/'},
+          //{expand: true, src: ['path/**'], dest: 'dest/'},
 
           // makes all src relative to cwd
-          {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
+          //{expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
 
           // flattens results to a single level
-          {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
+          //{expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
         ],
-      },
-      // copy a single file tree
-      main: {
-        expand: true,
-        src: 'src/*',
-        dest: 'dest/',
-        // Flattening the filepath output
-        flatten: true,
-        filter: 'isFile',
-        // Copy and modify a file
-        options: {
-          process: function (content, srcpath) {
-            return content.replace(/[sad ]/g, '_');
-          },
-        },
       },
     },
       
     // clean folders ------------------------------
     clean: {
-      build: ['path/to/dir/one', 'path/to/dir/two', '!path/to/dir/*.min.js'],
-      release: ['path/to/another/dir/one', 'path/to/another/dir/two']
+      build: ['dist']
     },
         
     // HTML minifier ------------------------------
@@ -183,11 +178,13 @@ module.exports = function(grunt) {
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-include-replace');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-sass');
   //grunt.loadNpmTasks('grunt-include-includereplace');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify','sass','includereplace']);
+  grunt.registerTask('default', ['clean','uglify','sass','includereplace','copy']);
 
 };

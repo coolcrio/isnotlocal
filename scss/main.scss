@@ -23,11 +23,16 @@ $light:         $gray-100;
 $dark:          $gray-800;
 */
 
-$primary:       #004494;
+$primary: rgb(0, 51, 153);
 
 $font-family-sans-serif: 'Titillium Web', sans-serif;
+
+$fa-font-path: "../webfonts";
 
 @import
   //'partials/bs',
   '../node_modules/bootstrap/scss/bootstrap',
+  '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
+  '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss',
+  '../node_modules/@fortawesome/fontawesome-free/scss/brands.scss',
   'custom.scss';
