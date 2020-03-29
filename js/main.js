@@ -7,7 +7,11 @@ function googleTranslateElementInit() {
 	console.debug('init')
 
 	var sendAnalyticsEvent = function (eventLabel) {
-		ga('send', 'event', 'Share', 'Share', eventLabel, 1);
+		gtag('event', eventLabel, {
+		  'event_category': 'Share',
+		  'event_label': eventLabel,
+		  'value': 1
+		})
 	}
 
 	$('.share a.btn').on('click', function(){
