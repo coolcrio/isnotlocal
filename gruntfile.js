@@ -103,6 +103,10 @@ module.exports = function(grunt) {
             dest: 'docs/img',
             cwd: 'img/' 
           },
+          {
+            src: ['CNAME'], 
+            dest: 'docs/CNAME'
+          },
 
           // includes files within path and its sub-directories
           //{expand: true, src: ['path/**'], dest: 'dest/'},
