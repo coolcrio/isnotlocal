@@ -4,6 +4,8 @@ function googleTranslateElementInit() {
 
 (function($){
 
+	console.debug('init')
+
 	var sendAnalyticsEvent = function (eventLabel) {
 		ga('send', 'event', 'Share', 'Share', eventLabel, 1);
 	}
@@ -20,6 +22,8 @@ function googleTranslateElementInit() {
 				eventLabel = 'Whatsapp';
 			else if( href.indexOf('facebook.com') >= 0 )
 				eventLabel = 'Facebook';
+
+			console.debug('Share on '+eventLabel)
 
 			sendAnalyticsEvent(eventLabel)
 		})
